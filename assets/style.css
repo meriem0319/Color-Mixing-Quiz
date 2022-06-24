@@ -1,0 +1,320 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #ecd7d3;
+}
+
+/* start button, info and quiz slides positioning  */
+.start-btn,
+.info-slide,
+.quiz-slide,
+.result-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+/* switching active depending on clicks  */
+.info-slide.activeInfo,
+.quiz-slide.activeQuiz {
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);  
+}
+
+/* start button styling  */
+.start-btn button {
+    font-size: 30px;
+    font-weight: 500;
+    color: #a03623;
+    padding: 15px 30px;
+    outline: none;
+    border: solid;
+    border-radius: 5px;
+    background: #d9afa7;
+    cursor: pointer;
+}
+
+.info-slide {
+    /* display: none; */
+    width: 550px;
+    background: #d9afa7;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.6);    
+}
+
+.info-slide .info-title {
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid white;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.info-slide .info-list {
+    padding: 15px 35px;
+}
+
+.info-slide .info-list .info{
+    margin: 10px 5px;
+    font-size: 20px;
+}
+
+.info-slide .buttons {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 40px;
+    border-top: 1px solid white;
+}
+
+.info-slide .buttons button {
+    margin: 0 7px;
+    height: 35px;
+    width: 100px;
+    border: 1px solid #a03623;
+    border-radius: 5px;
+    color: #ecd7d3;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.buttons button.next {
+    color: #ecd7d3;
+    background: #a03623;    
+}
+
+.buttons button.next:hover {
+    background-color: #4d2121;
+}
+
+
+.buttons button.quit {
+    color: #a03623;
+}
+
+.buttons button.quit:hover {
+    color: #ecd7d3;
+    background: #a03623;    
+}
+
+/* Quiz container styling  */
+.quiz-slide {
+    /* display: none; */
+    width: 500px;
+    background-color: white;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.6);
+}
+
+.quiz-slide header {    
+    height: 70px;
+    padding: 0 30px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.2);
+}
+
+.quiz-slide header .title {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.quiz-slide header .timer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 130px;
+    height: 30px;
+    background: #d9afa7;
+    border: 2px dotted #4d2121;
+    border-radius: 5px;
+    padding: 0 5px;
+}
+
+.quiz-slide header .timer .timer-text {
+    font-weight: 400;
+    font-size: 18px;
+    user-select: none;
+}
+
+.quiz-slide header .timer-sec {
+    font-size: 20px;
+    font-weight: 500;
+    background: #4d2121;
+    height: 20px;
+    width: 35px;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 5px;
+    border: 1px dotted #4d2121;
+    user-select: none;
+} 
+
+.quiz-slide section {
+    padding: 20px 25px 15px 25px;    
+}
+
+.quiz-slide section .question-text {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.quiz-slide section .answer-list {
+    padding: 15px 0;
+    display: block;
+
+}
+
+section .answer-list .answer {
+    background: #ecd7d3;
+    border: 1px solid #a03623;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+section .answer-list .answer:hover {
+    color: white;
+    background: #4d2121;
+    border-color: black;
+}
+
+.answer-list .answer:last-child {
+    margin-bottom: 0px;
+}
+
+.answer-list .answer .icon {
+    height: 27px;
+    width:27px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 15px;
+    line-height: 22px;
+    pointer-events: none;
+}
+
+.answer-list .answer .icon.palette {
+    color: green;
+    border-color: green;
+    background: rgb(198, 234, 198);
+}
+
+.answer-list .answer .icon.xmark {
+    color: red;
+    border-color: red;
+    background: rgb(232, 133, 133);
+}
+
+.quiz-slide footer {
+    height: 55px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+}
+
+footer .next-question {
+    font-size: 15px;
+    font-weight: 400;
+    height: 30px;
+    padding: 0 15px;
+    color: white;
+    background: #4d2121;
+    border-radius: 5px;
+    border: 2px solid #4d2121;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+footer .next-question:hover {
+    background: #240f0f;    
+}
+
+/* result container styling  */
+.result-slide {
+    background: white;
+    width: 400px;
+    padding: 20px 25px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.6);
+}
+
+.result-slide .icon {
+    font-size: 120px;
+    color: #d9afa7;
+    margin-bottom: 15px;
+}
+
+.result-slide .done-text {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.result-slide .score-text span {
+    display: flex;
+    margin: 15px 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.score-text span p {
+    font-weight: 900;
+    padding: 0 5px;
+}
+
+.result-slide .buttons {
+    display: flex;
+    margin: 15px 0;
+}
+
+.result-slide .buttons button {
+    margin: 0 8px;
+    height: 35px;
+    padding: 0 15px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 2px solid #4d2121;
+    background: #d9afa7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
