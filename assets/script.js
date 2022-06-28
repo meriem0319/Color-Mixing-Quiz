@@ -24,7 +24,7 @@ continueBtn.onclick = ()=>{
     infoSlide.classList.remove("activeInfo"); //hide the info
     quizSlide.classList.add("activeQuiz");  //then show the first quiz
     displayQuestions(0);
-    startTimer(15);
+    startTimer();
 }
 
 // Need to list the questions in the quiz 
@@ -140,14 +140,14 @@ function answerSelected(ans) {
         userScore += 1;
         ans.insertAdjacentHTML("beforeend", paletteIcon);
     } else {        
-        ans.classList.add("incorr");                                   
-        ans.insertAdjacentHTML("beforeend", xmarkIcon);
-        time = time - 5;      
+        ans.classList.add("incorr");
+        timeValue = timeValue - 5;                             
+        ans.insertAdjacentHTML("beforeend", xmarkIcon);                                    
     }
     for (let i = 0; i < allAnswers; i++) {        
         answerList.children[i].classList.add("disabled");        
-    }    
-    nextBtn.style.display = "block";        
+    }      
+    nextBtn.style.display = "block";
 }
 
 
@@ -168,12 +168,12 @@ function showResult() {
 }
 
 // adding a function for the timer 
-function startTimer(time) {
+function startTimer() {
     counter = setInterval(timer, 1000);
     function timer() {
-        timerCount.textContent = time;
-        time--;        
-        if (time < 0) {
+        timerCount.textContent = timeValue;
+        timeValue--;        
+        if (timeValue < 0) {
             showResult();
             clearInterval(counter);
             alert("Time is Up!");

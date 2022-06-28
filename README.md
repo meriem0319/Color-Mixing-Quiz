@@ -1,17 +1,17 @@
-# Color-Mixing-Quiz Application
+# 🎨 Color-Mixing-Quiz Application
 
-## My Task
+## 📝 My Task
 
 This Challenge is asking me to build a timed quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that I write. It will have a clean, polished, and responsive user interface. 
 
-## User Story
+## 💻 User Story
 
 ```
 As an artist who loves to paint 
 I want to take a timed quiz about mixing paint colors
 ```
 
-## Acceptance Criteria
+## 📋 Acceptance Criteria
 
 ```
 GIVEN I am taking a quiz
@@ -27,10 +27,17 @@ WHEN the game is over
 THEN I can save my initials AND be shown my score
 ```
 
-## ScreenGIF
+## 🎬 Application Demo
 
+![My Quiz Application Demo](/images/ColorQuizDemo.gif)
 
-## Deployment 
+## 🖱️ Deployment 
 
+* Quiz Website Link : https://meriem0319.github.io/Color-Mixing-Quiz/
+* Repo Link : https://github.com/meriem0319/Color-Mixing-Quiz
+
+## 🖌️ Author 
+
+Meriem Powell
 
 
