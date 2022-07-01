@@ -88,13 +88,29 @@ quitQuiz.onclick = ()=> {
     window.location.reload();
 }
 
+function handleLocalStrg (name) {
+    var myEntry = {
+        name: name, 
+        highScore: userScore
+    }
+    localStorage.setItem("highScore", JSON.stringify(myEntry));
+    console.log(localStorage.getItem("highScore"));
+}
+
+function getHs () { 
+    var myEntryObject = JSON.parse(localStorage.getItem("highScore"));
+    console.log(myEntryObject);
+    return "Thank you for playing " + myEntryObject.name + "! Your score is " + myEntryObject.highScore; 
+}
+
 recordInitials.onclick = ()=> {
     var initials = window.prompt("Enter your Initials:", "Initials"); 
     if (initials != null) {
-        document.getElementById("initials").innerHTML = 
-        "Thank you for playing " + initials + "! Your score is " + userScore;
+        handleLocalStrg(initials);
+        document.getElementById("initials").innerHTML = getHs();        
     }
 }
+
 
 // if the next question button is clicked, use if loop to display next question 
 nextBtn.onclick = ()=> {
@@ -181,3 +197,4 @@ function startTimer() {
         }  
     }     
 }
+
